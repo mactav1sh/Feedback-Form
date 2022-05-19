@@ -18,8 +18,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
@@ -29,7 +28,13 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run start:server`
+
+This runs the backend JSON server on `port:3004`
+
+### `npm run dev`
+
+This runs `start:server` script which starts the backend JSON server and runs `start` scripts which starts the app in development mode
 
 ### `npm run eject`
 

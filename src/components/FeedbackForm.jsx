@@ -11,7 +11,7 @@ import {
 } from '../styled/FeedbackFormStyled';
 
 function FeedbackForm() {
-  const { feedback, setFeedback, editFeedback, setEditFeedback } =
+  const { editFeedback, setEditFeedback, updateFeedback, createFeedback } =
     useContext(FeedbackContext);
   const [text, setText] = useState('');
   const [isDisabled, setDisabled] = useState(true);
@@ -38,26 +38,22 @@ function FeedbackForm() {
       setMessage('Text must be at least 10 characters');
     }
   };
-  const updateFeedback = (newfeedback) => {
-    const feedbackdata = feedback.map((item) =>
-      item.id === newfeedback.id ? { ...item, ...newfeedback } : item
-    );
-    setFeedback(feedbackdata);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Creating feedback object
+    // Feedback object
     const newFeedback = {
-      id: editFeedback.editing ? editFeedback.item.id : uuidv4(),
+      // id: editFeedback.editing ? editFeedback.item.id : uuidv4(),
       rating,
       text,
     };
+
     // Checking to see whether to update or add new feedback
     if (editFeedback.editing) {
-      updateFeedback(newFeedback);
-    } else setFeedback([newFeedback, ...feedback]);
+      console.log(editFeedback);
+      updateFeedback(editFeedback.item.id, newFeedback);
+    } else createFeedback(newFeedback);
 
     // Default Form state
     setRating(10);

@@ -19,7 +19,7 @@ function FeedbackStats() {
           {'Reviews'}
         </p>
       ) : (
-        <p>No Reviews Yet</p>
+        <p>No Reviews Yet.</p>
       )}
       {average ? (
         <p>

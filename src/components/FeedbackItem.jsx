@@ -9,15 +9,7 @@ import {
 } from '../styled/FeedbackItem.styled';
 
 function FeedbackItem({ item }) {
-  const { setFeedback, setEditFeedback } = useContext(FeedbackContext);
-
-  const deleteItem = (id) => {
-    if (window.confirm(`Are you sure you want to delete ${item.text}`)) {
-      setFeedback((prev) => {
-        return prev.filter((feedback) => feedback.id !== id);
-      });
-    }
-  };
+  const { setEditFeedback, deleteItem } = useContext(FeedbackContext);
 
   const editItem = () => {
     setEditFeedback({ item, editing: true });
@@ -29,7 +21,7 @@ function FeedbackItem({ item }) {
 
       <ButtonStyled
         onClick={() => {
-          deleteItem(item.id);
+          deleteItem(item);
         }}
       >
         <i className="fa-solid fa-xmark"></i>
